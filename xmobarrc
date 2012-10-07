@@ -3,22 +3,22 @@ Config { font = "xft:inconsolata:size=16:antialias=true"
        , fgColor = "grey"
        , position = TopW L 85
        , lowerOnStart = True
-       , commands = [ Run Weather "EGPF" ["-t","<tempC>C","-L","54","-H","24","--normal","green","--high","red","--low","lightblue"] 36000
-                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+       , commands = [ Run Weather "EGPF" ["-t","<tempC>C","-L","19","-H","30", "-n","green","-h","red","-l","lightblue"] 36000
+                    , Run ThermalZone 0 ["-t", "<temp>C" ,"-L","50","-H","79","-h","red","-n","green","-l","lightblue"] 30
+                    , Run Cpu ["-L","3","-H","50", "-n","green","-h","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
                     , Run Date "%a %b %_d %H:%M" "date" 10
-                    , Run ThermalZone 0 ["-t", "tz0: <temp>C"] 30
                     , Run Kbd [("us(dvp)", "EN"), ("ru", "RU")]
                     , Run BatteryP ["BAT0"]
-                        ["-t", "<acstatus><watts> <left>% <timeleft>",
-                         "-L", "10", "-H", "80",
-                         "--", "-O", "<fc=green>on</fc> ", "-o", "<fc=red>off</fc> ",
-                         "-l", "red", "-m", "blue", "-h", "green", "-p", "yellow"]
+                        ["-t", "<left>% <timeleft>",
+                         "-L","10","-H","80",
+                         "--",
+                         "-l","red","-m","yellow","-h","green"]
                         600
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %battery% | <fc=#CC0000>%thermal0%</fc> | <fc=#ee9a00>%date%</fc> | %EGPF% | <fc=#87CEFA>%kbd%</fc> "
+       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %battery% | %thermal0% | <fc=#ee9a00>%date%</fc> | %EGPF% | <fc=#87CEFA>%kbd%</fc> "
        }
