@@ -11,7 +11,7 @@ import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
 main = do
-  xmproc <- spawnPipe "xmobar $HOME/.xmonad/.xmobarrc"
+  xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   spawn "$HOME/.xmonad/autostart.sh"
   xmonad $ defaultConfig
     { terminal    = "sakura"
