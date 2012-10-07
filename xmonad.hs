@@ -33,7 +33,7 @@ main = do
     }
 
 myModMask = mod4Mask
-myWorkspaces = ["term", "web", "mail", "skype", "im", "ff", "code", "files", "9", "10", "11", "12"]
+myWorkspaces = ["term", "web", "mail", "skype", "im", "code", "ff", "files", "9", "10", "11", "12"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
