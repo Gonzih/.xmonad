@@ -4,10 +4,14 @@ import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Run
+import XMonad.Layout.NoBorders
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
+
+import Control.Monad (liftM2)
 
 main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
@@ -29,14 +33,25 @@ main = do
     }
 
 myModMask = mod4Mask
-myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+myWorkspaces = ["term", "web", "mail", "skype", "im", "ff", "code", "files", "9", "10", "11", "12"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
 myManageHook = composeAll
-    [ className =? "MPlayer"   --> doFloat
-    , className =? "Vncviewer" --> doFloat
+    [ className =? "MPlayer"       --> doFloat
+    , className =? "Vncviewer"     --> doFloat
+    , isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
+    , className =? "Thunderbird"   --> viewShift "mail"
+    , className =? "Google-chrome" --> viewShift "web"
+    , className =? "Chromium"      --> viewShift "web"
+    , className =? "Firefox"       --> viewShift "ff"
+    , className =? "Pidgin"        --> viewShift "im"
+    , className =? "Skype"         --> viewShift "skype"
+    , className =? "vim"           --> viewShift "code"
+    , className =? "Gvim"          --> viewShift "code"
+    , className =? "Nautilus"      --> viewShift "files"
     ]
+  where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
 myStartupHook = do
   spawn "$HOME/.xmonad/autostart.sh"
