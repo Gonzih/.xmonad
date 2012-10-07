@@ -10,9 +10,15 @@ Config { font = "xft:inconsolata:size=16:antialias=true"
                     , Run Date "%a %b %_d %H:%M" "date" 10
                     , Run ThermalZone 0 ["-t", "tz0: <temp>C"] 30
                     , Run Kbd [("us(dvp)", "EN"), ("ru", "RU")]
+                    , Run BatteryP ["BAT0"]
+                        ["-t", "<acstatus><watts> <left>% <timeleft>",
+                         "-L", "10", "-H", "80",
+                         "--", "-O", "<fc=green>on</fc> ", "-o", "<fc=red>off</fc> ",
+                         "-l", "red", "-m", "blue", "-h", "green", "-p", "yellow"]
+                        600
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | <fc=#CC0000>%thermal0%</fc> | <fc=#ee9a00>%date%</fc> | %EGPF% | <fc=#87CEFA>%kbd%</fc> "
+       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %battery% | <fc=#CC0000>%thermal0%</fc> | <fc=#ee9a00>%date%</fc> | %EGPF% | <fc=#87CEFA>%kbd%</fc> "
        }
