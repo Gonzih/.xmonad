@@ -1,7 +1,6 @@
 import XMonad
 import System.Exit
 import System.IO
-{-import XMonad.Actions.KeyRemap-}
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -12,13 +11,12 @@ import qualified XMonad.StackSet as W
 
 main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
-  spawn "$HOME/.xmonad/autostart.sh"
   xmonad $ defaultConfig
     { terminal    = "sakura"
     , borderWidth = 3
     , focusedBorderColor = "#009900"
     , modMask     = myModMask
-    {-, startupHook = myStartupHook-}
+    , startupHook = myStartupHook
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
     , layoutHook = avoidStruts $ layoutHook defaultConfig
     , logHook = dynamicLogWithPP xmobarPP
@@ -32,6 +30,16 @@ main = do
 
 myModMask = mod4Mask
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+myFocusFollowsMouse :: Bool
+myFocusFollowsMouse = True
+
+myManageHook = composeAll
+    [ className =? "MPlayer"   --> doFloat
+    , className =? "Vncviewer" --> doFloat
+    ]
+
+myStartupHook = do
+  spawn "$HOME/.xmonad/autostart.sh"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -144,15 +152,3 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
     {-++ buildKeyRemapBindings [dvorakProgrammerKeyRemap, emptyKeyRemap]-}
-
-
-myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
-
-myManageHook = composeAll
-    [ className =? "MPlayer"   --> doFloat
-    , className =? "Vncviewer" --> doFloat
-    ]
-
-{-myStartupHook = do-}
-  {-setDefaultKeyRemap emptyKeyRemap [dvorakProgrammerKeyRemap, emptyKeyRemap]-}
