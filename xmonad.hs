@@ -94,16 +94,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_d     ), prevWS)
 
     -- Move window to next workspace
-    , ((modm              , xK_b     ), shiftToNext)
+    , ((modm .|. shiftMask, xK_n     ), shiftToNext)
 
     -- Move window to prev workspace
-    , ((modm .|. shiftMask, xK_b     ), shiftToPrev)
+    , ((modm .|. shiftMask, xK_d     ), shiftToPrev)
 
     -- Shrink the master area
-    , ((modm .|. shiftMask, xK_d     ), sendMessage Shrink)
+    , ((modm .|. shiftMask, xK_Left  ), sendMessage Shrink)
 
     -- Expand the master area
-    , ((modm .|. shiftMask, xK_n     ), sendMessage Expand)
+    , ((modm .|. shiftMask, xK_Right ), sendMessage Expand)
 
     -- Push window back into tiling
     , ((modm,               xK_y     ), withFocused $ windows . W.sink)
