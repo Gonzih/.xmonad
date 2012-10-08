@@ -49,7 +49,6 @@ myManageHook = composeAll
     , className =? "Firefox"       --> viewShift "ff"
     , className =? "Pidgin"        --> viewShift "im"
     , className =? "Skype"         --> viewShift "skype"
-    , className =? "vim"           --> viewShift "code"
     , className =? "Gvim"          --> viewShift "code"
     , className =? "Nautilus"      --> viewShift "files"
     ]
