@@ -3,6 +3,7 @@ import System.Exit
 import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DynamicWorkspaces
+import XMonad.Actions.CopyWindow(copy)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -165,11 +166,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Remove workspace
     , ((modm              , xK_e     ), removeEmptyWorkspace)
 
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
-    {-, ((modm              , xK_b     ), sendMessage ToggleStruts)-}
+    ---- For dynamic workspaces
+    -- Select workspace
+    , ((modm    , xK_semicolon       ), selectWorkspace myPromptConfig)
+
+    -- Move client to workspace
+    , ((modm              , xK_u     ), withWorkspace myPromptConfig (windows . W.shift))
+
+    -- Copy client to workspace
+    , ((modm .|. shiftMask, xK_u     ), withWorkspace myPromptConfig (windows . copy))
     ]
 
     -- Programmer Dvorak
