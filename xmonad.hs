@@ -60,6 +60,8 @@ myManageHook = composeAll
 myStartupHook = do
   spawn "$HOME/.xmonad/autostart.sh"
 
+myNumbersRow = [xK_ampersand, xK_bracketleft, xK_braceleft, xK_braceright, xK_parenleft, xK_equal, xK_asterisk, xK_parenright, xK_plus, xK_bracketright, xK_exclam]
+
 ------------------------------------------------------------------------
 -- Prompt Config
 --
@@ -169,18 +171,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     {-, ((modm              , xK_b     ), sendMessage ToggleStruts)-}
     ]
-    ++
 
     -- Programmer Dvorak
-    -- mod-[1..0], Switch to workspace N
-    --
-    -- mod-[1..0], Switch to workspace N
-    -- mod-shift-[1..0], Move client to workspace N
-    --
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_ampersand, xK_bracketleft, xK_braceleft, xK_braceright, xK_parenleft
-                                                 ,xK_equal, xK_asterisk, xK_parenright, xK_plus, xK_bracketright, xK_exclam]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+    -- mod-[1..9]       %! Switch to workspace N
+    -- mod-shift-[1..9] %! Move client to workspace N
+    ++
+    zip (zip (repeat (modm)) myNumbersRow) (map (withNthWorkspace W.greedyView) [0..])
+    ++
+    zip (zip (repeat (modm .|. shiftMask)) myNumbersRow) (map (withNthWorkspace W.shift) [0..])
     {-++-}
 
     --
