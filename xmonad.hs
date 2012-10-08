@@ -155,10 +155,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Add workspace with prompt
-    , ((modm              , xK_a     ), addWorkspacePrompt myPromptConfig)
+    , ((modm              , xK_o     ), addWorkspacePrompt myPromptConfig)
 
     -- Rename workspace
-    , ((modm              , xK_o     ), renameWorkspace myPromptConfig)
+    , ((modm              , xK_a     ), renameWorkspace myPromptConfig)
 
     -- Remove workspace
     , ((modm              , xK_e     ), removeEmptyWorkspace)
