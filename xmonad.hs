@@ -2,6 +2,7 @@ import XMonad
 import System.Exit
 import System.IO
 import XMonad.Actions.CycleWS
+import XMonad.Actions.DynamicWorkspaces
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -12,6 +13,7 @@ import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
 import Control.Monad (liftM2)
+import XMonad.Prompt (XPPosition(Top), XPConfig(..), defaultXPConfig)
 
 main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
@@ -55,6 +57,21 @@ myManageHook = composeAll
 
 myStartupHook = do
   spawn "$HOME/.xmonad/autostart.sh"
+
+------------------------------------------------------------------------
+-- Prompt Config
+--
+myPromptConfig :: XPConfig
+myPromptConfig = defaultXPConfig
+    { position          = Top
+    , promptBorderWidth = 0
+    , font              = "xft:inconsolata:size=16:antialias=true"
+    , height            = 24
+    , bgColor           = "black"
+    , fgColor           = "grey"
+    , bgHLight          = "#6B6382"
+    , fgHLight          = "#4A4459"
+    }
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -135,6 +152,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
+    -- Add workspace with prompt
+    , ((modm              , xK_a     ), addWorkspacePrompt myPromptConfig)
+
+    -- Rename workspace
+    , ((modm              , xK_o     ), renameWorkspace myPromptConfig)
+
+    -- Remove workspace
+    , ((modm              , xK_e     ), removeEmptyWorkspace)
+
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function from Hooks.DynamicLog.
@@ -152,14 +178,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_F1 .. xK_F12]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
+    {-++-}
 
     --
     -- mod-{a,o,e}, Switch to physical/Xinerama screens 1, 2, or 3
     -- mod-shift-{a,o,e}, Move client to screen 1, 2, or 3
     --
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_a, xK_o, xK_e] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
-    {-++ buildKeyRemapBindings [dvorakProgrammerKeyRemap, emptyKeyRemap]-}
+    {-[((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))-}
+        {-| (key, sc) <- zip [xK_a, xK_o, xK_e] [0..]-}
+        {-, (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]-}
