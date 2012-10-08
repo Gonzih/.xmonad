@@ -38,7 +38,7 @@ main = do
     }
 
 myModMask = mod4Mask
-myWorkspaces = ["term", "web", "mail", "skype", "im", "code", "ff", "files", "9", "10", "11", "12"]
+myWorkspaces = ["term", "web", "mail", "skype", "im", "code", "ff", "files", "9", "0"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
@@ -178,7 +178,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[F1..F12], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_F1 .. xK_F12]
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_ampersand, xK_bracketleft, xK_braceleft, xK_braceright, xK_parenleft
+                                                 ,xK_equal, xK_asterisk, xK_parenright, xK_plus, xK_bracketright, xK_exclam]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     {-++-}
 
