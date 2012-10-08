@@ -3,7 +3,7 @@ Config { font = "xft:inconsolata:size=16:antialias=true"
        , fgColor = "grey"
        , position = TopW L 85
        , lowerOnStart = True
-       , commands = [ Run Weather "UMMG" ["-t","<tempC>C","-L","19","-H","30", "-n","green","-h","red","-l","lightblue"] 3600
+       , commands = [ Run Weather "UMMG" ["-t","<tempC>C","-L","19","-H","30", "-n","green","-h","red","-l","lightblue"] 600
                     , Run ThermalZone 0 ["-t", "<temp>C" ,"-L","50","-H","79","-h","red","-n","green","-l","lightblue"] 30
                     , Run Cpu ["-L","3","-H","50", "-n","green","-h","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
