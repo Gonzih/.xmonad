@@ -171,11 +171,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ]
     ++
 
+    -- Programmer Dvorak
+    -- mod-[1..0], Switch to workspace N
     --
-    -- mod-[F1..F12], Switch to workspace N
-    --
-    -- mod-[F1..F12], Switch to workspace N
-    -- mod-shift-[F1..F12], Move client to workspace N
+    -- mod-[1..0], Switch to workspace N
+    -- mod-shift-[1..0], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_ampersand, xK_bracketleft, xK_braceleft, xK_braceright, xK_parenleft
