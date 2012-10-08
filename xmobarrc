@@ -8,7 +8,7 @@ Config { font = "xft:inconsolata:size=16:antialias=true"
                     , Run Cpu ["-L","3","-H","50", "-n","green","-h","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
-                    , Run Date "%a %b %_d %H:%M" "date" 10
+                    , Run Date "%a %0d %b %H:%M" "date" 10
                     , Run Kbd [("us(dvp)", "EN"), ("ru", "RU")]
                     , Run BatteryP ["BAT0"]
                         ["-t", "<left>% <timeleft>",
