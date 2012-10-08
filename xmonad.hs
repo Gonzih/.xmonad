@@ -6,8 +6,10 @@ import XMonad.Actions.DynamicWorkspaces
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run
 import XMonad.Layout.NoBorders
+
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -25,6 +27,7 @@ main = do
     , startupHook = myStartupHook
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
     , layoutHook = avoidStruts $ layoutHook defaultConfig
+    , handleEventHook = fullscreenEventHook
     , logHook = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmproc
                     , ppTitle = xmobarColor "green" "" . shorten 50
