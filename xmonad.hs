@@ -42,6 +42,7 @@ myModMask = mod4Mask
 myWorkspaces = ["term", "web", "mail", "skype", "im", "code", "ff", "files", "9", "0"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
+myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
 
 myManageHook = composeAll
     [ className =? "MPlayer"       --> doFloat
@@ -155,7 +156,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm              , xK_q     ), spawn myRestartCmd)
 
     -- Add workspace with prompt
     , ((modm              , xK_a     ), addWorkspacePrompt myPromptConfig)
