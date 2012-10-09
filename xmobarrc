@@ -20,5 +20,5 @@ Config { font = "xft:inconsolata:size=16:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | Mem: %memory% * %swap% | %battery% | %thermal0% | <fc=#ee9a00>%date%</fc> | %UMMG% | <fc=#87CEFA>%kbd%</fc>"
+       , template = "%StdinReader% }{ %cpu% | Mem: %memory% * %swap% | %battery% | %thermal0% | <fc=#ee9a00>%date%</fc> | %UMMG% | <fc=#87CEFA>%kbd%</fc> "
        }
