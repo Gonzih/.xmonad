@@ -185,6 +185,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     zip (zip (repeat (modm)) myNumbersRow) (map (withNthWorkspace W.greedyView) [0..])
     ++
     zip (zip (repeat (modm .|. shiftMask)) myNumbersRow) (map (withNthWorkspace W.shift) [0..])
+    ++
+
+    -- Screenshot commands
+    [ ((0, xK_Print), spawn "scrot /tmp/full-screenshot.png")
+    , ((mod1Mask, xK_Print), spawn "scrot -b -s /tmp/area-screenshot.png") ]
     {-++-}
 
     --
