@@ -39,7 +39,7 @@ main = do
     }
 
 myModMask = mod4Mask
-myWorkspaces = ["term", "web", "mail", "skype", "im", "code", "ff", "files", "9", "0"]
+myWorkspaces = ["1-term", "2-web", "3-mail", "4-skype", "5-im", "6-code", "7-ff", "8-files", "9", "0"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
@@ -48,14 +48,14 @@ myManageHook = composeAll
     [ className =? "MPlayer"       --> doFloat
     , className =? "Vncviewer"     --> doFloat
     , isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
-    , className =? "Thunderbird"   --> viewShift "mail"
-    , className =? "Google-chrome" --> viewShift "web"
-    , className =? "Chromium"      --> viewShift "web"
-    , className =? "Firefox"       --> viewShift "ff"
-    , className =? "Pidgin"        --> viewShift "im"
-    , className =? "Skype"         --> viewShift "skype"
-    , className =? "Gvim"          --> viewShift "code"
-    , className =? "Nautilus"      --> viewShift "files"
+    , className =? "Google-chrome" --> viewShift "2-web"
+    , className =? "Chromium"      --> viewShift "2-web"
+    , className =? "Thunderbird"   --> viewShift "3-mail"
+    , className =? "Skype"         --> viewShift "4-skype"
+    , className =? "Pidgin"        --> viewShift "5-im"
+    , className =? "Gvim"          --> viewShift "6-code"
+    , className =? "Firefox"       --> viewShift "7-ff"
+    , className =? "Nautilus"      --> viewShift "8-files"
     ]
   where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
