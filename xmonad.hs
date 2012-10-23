@@ -39,7 +39,7 @@ main = do
     }
 
 myModMask = mod4Mask
-myWorkspaces = ["1-term", "2-web", "3-mail", "4-skype", "5-im", "6-code", "7-ff", "8-files", "9", "0"]
+myWorkspaces = ["1-term", "2-web", "3-mail", "4-skype", "5-im", "6-files", "7-zsh", "8-zsh", "9-zsh", "0-ff"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
@@ -53,9 +53,8 @@ myManageHook = composeAll
     , className =? "Thunderbird"   --> viewShift "3-mail"
     , className =? "Skype"         --> viewShift "4-skype"
     , className =? "Pidgin"        --> viewShift "5-im"
-    , className =? "Gvim"          --> viewShift "6-code"
-    , className =? "Firefox"       --> viewShift "7-ff"
-    , className =? "Nautilus"      --> viewShift "8-files"
+    , className =? "Nautilus"      --> viewShift "6-files"
+    , className =? "Firefox"       --> viewShift "0-ff"
     ]
   where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
