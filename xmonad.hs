@@ -23,7 +23,7 @@ main = do
   xmonad $ defaultConfig
     { terminal    = "sakura"
     , borderWidth = 3
-    , focusedBorderColor = "#009900"
+    , focusedBorderColor = "#026396"
     , modMask     = myModMask
     , startupHook = myStartupHook
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
