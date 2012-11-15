@@ -22,7 +22,7 @@ main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ defaultConfig
     { terminal    = "sakura"
-    , borderWidth = 1
+    , borderWidth = 3
     , focusedBorderColor = "#009900"
     , modMask     = myModMask
     , startupHook = myStartupHook
