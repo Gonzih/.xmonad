@@ -146,10 +146,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_f     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN (-1)))
+    , ((modm              , xK_w ), sendMessage (IncMasterN (-1)))
 
     -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN 1))
+    , ((modm              , xK_v), sendMessage (IncMasterN 1))
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
@@ -168,7 +168,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     ---- For dynamic workspaces
     -- Select workspace
-    , ((modm    , xK_semicolon       ), selectWorkspace myPromptConfig)
+    , ((modm              , xK_i     ), selectWorkspace myPromptConfig)
 
     -- Move client to workspace
     , ((modm              , xK_u     ), withWorkspace myPromptConfig (windows . W.shift))
@@ -189,12 +189,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Screenshot commands
     [ ((0, xK_Print), spawn "scrot /tmp/full-screenshot.png")
     , ((mod1Mask, xK_Print), spawn "scrot -b -s /tmp/area-screenshot.png") ]
-    {-++-}
+    ++
 
     --
     -- mod-{a,o,e}, Switch to physical/Xinerama screens 1, 2, or 3
     -- mod-shift-{a,o,e}, Move client to screen 1, 2, or 3
     --
-    {-[((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))-}
-        {-| (key, sc) <- zip [xK_a, xK_o, xK_e] [0..]-}
-        {-, (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]-}
+    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
+        | (key, sc) <- zip [xK_semicolon, xK_comma, xK_period, xK_p, xK_y] [0..]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
