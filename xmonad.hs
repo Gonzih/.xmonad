@@ -21,7 +21,7 @@ import XMonad.Prompt (XPPosition(Top), XPConfig(..), defaultXPConfig)
 main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ defaultConfig
-    { terminal    = "sakura"
+    { terminal    = "gnome-terminal"
     , borderWidth = 3
     , focusedBorderColor = "#026396"
     , modMask     = myModMask
