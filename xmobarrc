@@ -17,8 +17,9 @@ Config { font = "xft:inconsolata:size=16:antialias=true"
                          "-l","red","-m","yellow","-h","green"]
                         600
                     , Run StdinReader
+                    , Run Com "~/.xmonad/mic-state.sh"  []  "mic" 5
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | Mem: %memory% * %swap% | %battery% | %thermal0% | <fc=#ee9a00>%date%</fc> | %UMMG% | <fc=#87CEFA>%kbd%</fc> "
+       , template = "%StdinReader% }{ %cpu% | Mem: %memory% * %swap% | %battery% | %thermal0% | <fc=#ee9a00>%date%</fc> | %UMMG% | <fc=#87CEFA>%kbd%</fc> | %mic% "
        }
