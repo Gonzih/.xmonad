@@ -39,7 +39,7 @@ main = do
     }
 
 myModMask = mod4Mask
-myWorkspaces = ["1-term", "2-web", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-ff"]
+myWorkspaces = ["1-term", "2-web", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-wrk"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
@@ -49,12 +49,12 @@ myManageHook = composeAll
     , className =? "Vncviewer"     --> doFloat
     , isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
     , className =? "Google-chrome" --> viewShift "2-web"
-    , className =? "Chromium"      --> viewShift "2-web"
     , className =? "Thunderbird"   --> viewShift "3-mail"
     , className =? "Skype"         --> viewShift "4-skype"
     , className =? "Pidgin"        --> viewShift "5-im"
     , className =? "Xchat"         --> viewShift "6-irc"
-    , className =? "Firefox"       --> viewShift "0-ff"
+    , className =? "Firefox"       --> viewShift "0-wrk"
+    , className =? "Chromium"      --> viewShift "0-wrk"
     ]
   where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
