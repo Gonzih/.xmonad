@@ -10,7 +10,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run
 import XMonad.Layout.NoBorders
-
+import XMonad.Hooks.SetWMName
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -25,7 +25,7 @@ main = do
     , borderWidth = 3
     , focusedBorderColor = "#026396"
     , modMask     = myModMask
-    , startupHook = myStartupHook
+    , startupHook = myStartupHook >> setWMName "LG3D"
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
     , layoutHook = smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = fullscreenEventHook
