@@ -31,7 +31,7 @@ main = do
     , handleEventHook = fullscreenEventHook
     , logHook = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmproc
-                    , ppTitle = xmobarColor "green" "" . shorten 50
+                    , ppTitle = xmobarColor "green" "" . shorten 30
                     }
     , workspaces = myWorkspaces
     , focusFollowsMouse = myFocusFollowsMouse
