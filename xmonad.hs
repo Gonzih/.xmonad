@@ -52,6 +52,7 @@ myManageHook = composeAll
     , className =? "Thunderbird"   --> viewShift "3-mail"
     , className =? "Skype"         --> viewShift "4-skype"
     , className =? "Pidgin"        --> viewShift "5-im"
+    , className =? "Empathy"       --> viewShift "5-im"
     , className =? "Xchat"         --> viewShift "6-irc"
     , className =? "Firefox"       --> viewShift "0-wrk"
     , className =? "Chromium"      --> viewShift "0-wrk"
