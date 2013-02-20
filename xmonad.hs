@@ -11,6 +11,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.SetWMName
+import XMonad.Actions.UpdatePointer
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -33,6 +34,7 @@ main = do
                     { ppOutput = hPutStrLn xmproc
                     , ppTitle = xmobarColor "green" "" . shorten 30
                     }
+                    >> updatePointer (Relative 0.5 0.5)
     , workspaces = myWorkspaces
     , focusFollowsMouse = myFocusFollowsMouse
     , keys = myKeys
