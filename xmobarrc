@@ -18,8 +18,9 @@ Config { font = "xft:inconsolata:size=15:antialias=true"
                         600
                     , Run StdinReader
                     , Run Com "~/.xmonad/mic-state.sh"  []  "mic" 10
+                    , Run Com "pacman -Qu | wc -l"  []  "upd" 18000
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | Mem: %memory% * %swap% | %battery% | %thermal0% | <fc=#ee9a00>%date%</fc> | %UMMG% | <fc=#87CEFA>%kbd%</fc> | %mic% "
+       , template = "%StdinReader% }{ %cpu% | Mem: %memory% * %swap% | %battery% | %thermal0% | <fc=#ee9a00>%date%</fc> | %UMMG% | <fc=#87CEFA>%kbd%</fc> | %mic% | <fc=#00CC00>%upd%u</fc>"
        }
