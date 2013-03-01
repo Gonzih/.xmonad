@@ -3,7 +3,7 @@ import System.Exit
 import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DynamicWorkspaces
-import XMonad.Actions.CopyWindow(copy)
+import XMonad.Actions.CopyWindow(copy, kill1)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -41,6 +41,7 @@ main = do
     }
 
 myModMask = mod4Mask
+altMask = mod1Mask
 myWorkspaces = ["1-term", "2-web", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-wrk"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
@@ -95,7 +96,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm .|. shiftMask, xK_c     ), kill1)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
@@ -186,7 +187,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
     zip (zip (repeat (modm)) myNumbersRow) (map (withNthWorkspace W.greedyView) [0..])
     ++
-    zip (zip (repeat (modm .|. shiftMask)) myNumbersRow) (map (withNthWorkspace W.shift) [0..])
+    zip (zip (repeat (modm .|. shiftMask))   myNumbersRow) (map (withNthWorkspace W.shift) [0..])
+    ++
+    zip (zip (repeat (modm .|. altMask)) myNumbersRow) (map (withNthWorkspace copy)  [0..])
     ++
 
     -- Screenshot commands
