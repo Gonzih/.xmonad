@@ -99,10 +99,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_c     ), kill1)
 
     -- copy window to all workspaces (make always visible)
-    , ((modm, xK_v                   ), windows copyToAll)
+    , ((modm,               xK_z     ), windows copyToAll)
 
     -- kill all other window copies (disable always visible)
-    , ((modm .|. shiftMask, xK_v     ),  killAllOtherCopies)
+    , ((modm .|. shiftMask, xK_z     ),  killAllOtherCopies)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
@@ -156,10 +156,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_f     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
-    , ((modm              , xK_w ), sendMessage (IncMasterN (-1)))
+    , ((modm              , xK_w     ), sendMessage (IncMasterN (-1)))
 
     -- Deincrement the number of windows in the master area
-    , ((modm              , xK_v), sendMessage (IncMasterN 1))
+    , ((modm              , xK_v     ), sendMessage (IncMasterN 1))
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
