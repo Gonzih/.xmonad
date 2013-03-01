@@ -3,7 +3,7 @@ import System.Exit
 import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DynamicWorkspaces
-import XMonad.Actions.CopyWindow(copy, kill1)
+import XMonad.Actions.CopyWindow(copy, kill1, copyToAll, killAllOtherCopies)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -97,6 +97,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill1)
+
+    -- copy window to all workspaces (make always visible)
+    , ((modm, xK_v                   ), windows copyToAll)
+
+    -- kill all other window copies (disable always visible)
+    , ((modm .|. shiftMask, xK_v     ),  killAllOtherCopies)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
