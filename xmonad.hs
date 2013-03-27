@@ -199,8 +199,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
 
     -- Screenshot commands
-    [ ((0, xK_Print), spawn "scrot /tmp/full-screenshot.png")
-    , ((mod1Mask, xK_Print), spawn "scrot -b -s /tmp/area-screenshot.png") ]
+    [ ((0, xK_Print), spawn "~/.xmonad/scripts/full-screenshot.sh")
+    , ((mod1Mask, xK_Print), spawn "~/.xmonad/scripts/area-screenshot.sh") ]
     ++
 
     --
