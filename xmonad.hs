@@ -42,23 +42,26 @@ main = do
 
 myModMask = mod4Mask
 altMask = mod1Mask
-myWorkspaces = ["1-term", "2-web", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-wrk"]
+myWorkspaces = ["1-term", "2-music", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-www"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
 
 myManageHook = composeAll
     [ className =? "MPlayer"       --> doFloat
+    , className =? "mplayer2"      --> doFloat
     , className =? "Vncviewer"     --> doFloat
     , isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
-    , className =? "Google-chrome" --> viewShift "2-web"
+    , className =? "Rhythmbox"     --> viewShift "2-music"
     , className =? "Thunderbird"   --> viewShift "3-mail"
     , className =? "Skype"         --> viewShift "4-skype"
     , className =? "Pidgin"        --> viewShift "5-im"
     , className =? "Empathy"       --> viewShift "5-im"
     , className =? "Xchat"         --> viewShift "6-irc"
-    , className =? "Firefox"       --> viewShift "0-wrk"
-    , className =? "Chromium"      --> viewShift "0-wrk"
+    , className =? "Google-chrome" --> viewShift "0-www"
+    , className =? "Firefox"       --> viewShift "0-www"
+    , className =? "Chromium"      --> viewShift "0-www"
+    , className =? "peksystray"    --> doIgnore
     ]
   where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
