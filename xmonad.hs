@@ -45,12 +45,13 @@ altMask = mod1Mask
 myWorkspaces = ["1-term", "2-music", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-www"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
-myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
+myRestartCmd = "~/.cabal/bin/xmonad --recompile; killall stalonetray; ~/.cabal/bin/xmonad --restart"
 
 myManageHook = composeAll
     [ className =? "MPlayer"       --> doFloat
     , className =? "mplayer2"      --> doFloat
     , className =? "Vncviewer"     --> doFloat
+    , className =? "Gnuplot"       --> doFloat
     , isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
     , className =? "Rhythmbox"     --> viewShift "2-music"
     , className =? "Thunderbird"   --> viewShift "3-mail"
