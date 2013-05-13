@@ -11,3 +11,4 @@ skype &
 pidgin &
 thunderbird &
 dropbox start &
+/usr/bin/numlockx on &
