@@ -45,7 +45,7 @@ altMask = mod1Mask
 myWorkspaces = ["1-term", "2-music", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-www"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
-myRestartCmd = "~/.cabal/bin/xmonad --recompile; killall stalonetray; ~/.cabal/bin/xmonad --restart"
+myRestartCmd = "xmonad --recompile; killall stalonetray; xmonad --restart"
 
 myManageHook = composeAll
     [ className =? "MPlayer"       --> doFloat
