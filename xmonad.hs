@@ -55,6 +55,7 @@ myManageHook = composeAll
     , isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
     , className =? "Rhythmbox"     --> viewShift "2-music"
     , className =? "Thunderbird"   --> viewShift "3-mail"
+    , className =? "Evolution"     --> viewShift "3-mail"
     , className =? "Skype"         --> viewShift "4-skype"
     , className =? "Pidgin"        --> viewShift "5-im"
     , className =? "Empathy"       --> viewShift "5-im"
