@@ -48,11 +48,11 @@ myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall stalonetray; xmonad --restart"
 
 myManageHook = composeAll
-    [ className =? "MPlayer"       --> doFloat
+    [ isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
+    , className =? "MPlayer"       --> doFloat
     , className =? "mplayer2"      --> doFloat
     , className =? "Vncviewer"     --> doFloat
     , className =? "Gnuplot"       --> doFloat
-    , isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
     , className =? "Rhythmbox"     --> viewShift "2-music"
     , className =? "Thunderbird"   --> viewShift "3-mail"
     , className =? "Evolution"     --> viewShift "3-mail"
