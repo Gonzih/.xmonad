@@ -211,9 +211,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
 
     --
-    -- mod-{a,o,e}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{a,o,e}, Move client to screen 1, 2, or 3
+    -- mod-{; , .}, Switch to physical/Xinerama screens 1, 2, or 3
+    -- mod-shift-{; , .}, Move client to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_semicolon, xK_comma, xK_period, xK_p, xK_y] [0..]
+        | (key, sc) <- zip [xK_comma, xK_semicolon, xK_period, xK_p, xK_y] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
