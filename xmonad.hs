@@ -48,22 +48,23 @@ myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall stalonetray; xmonad --restart"
 
 myManageHook = composeAll
-    [ isFullscreen                 --> (doF W.focusDown <+> doFullFloat)
-    , className =? "MPlayer"       --> doFloat
-    , className =? "mplayer2"      --> doFloat
-    , className =? "Vncviewer"     --> doFloat
-    , className =? "Gnuplot"       --> doFloat
-    , className =? "Rhythmbox"     --> viewShift "2-music"
-    , className =? "Thunderbird"   --> viewShift "3-mail"
-    , className =? "Evolution"     --> viewShift "3-mail"
-    , className =? "Skype"         --> viewShift "4-skype"
-    , className =? "Pidgin"        --> viewShift "5-im"
-    , className =? "Empathy"       --> viewShift "5-im"
-    , className =? "Xchat"         --> viewShift "6-irc"
-    , className =? "Google-chrome" --> viewShift "0-www"
-    , className =? "Firefox"       --> viewShift "0-www"
-    , className =? "Chromium"      --> viewShift "0-www"
-    , className =? "peksystray"    --> doIgnore
+    [ isFullscreen                    --> (doF W.focusDown <+> doFullFloat)
+    , className =? "MPlayer"          --> doFloat
+    , className =? "mplayer2"         --> doFloat
+    , className =? "Vncviewer"        --> doFloat
+    , className =? "Gnuplot"          --> doFloat
+    , className =? "java-lang-Thread" --> doFloat   -- Incanter graphs
+    , className =? "Rhythmbox"        --> viewShift "2-music"
+    , className =? "Thunderbird"      --> viewShift "3-mail"
+    , className =? "Evolution"        --> viewShift "3-mail"
+    , className =? "Skype"            --> viewShift "4-skype"
+    , className =? "Pidgin"           --> viewShift "5-im"
+    , className =? "Empathy"          --> viewShift "5-im"
+    , className =? "Xchat"            --> viewShift "6-irc"
+    , className =? "Google-chrome"    --> viewShift "0-www"
+    , className =? "Firefox"          --> viewShift "0-www"
+    , className =? "Chromium"         --> viewShift "0-www"
+    , className =? "peksystray"       --> doIgnore
     ]
   where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
