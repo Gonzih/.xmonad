@@ -66,6 +66,7 @@ myManageHook = composeAll
     , className =? "Firefox"          --> viewShift "0-www"
     , className =? "Chromium"         --> viewShift "0-www"
     , className =? "peksystray"       --> doIgnore
+    , className =? "mate-panel"       --> doIgnore
     ]
   where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
