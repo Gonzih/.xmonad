@@ -101,9 +101,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch gmrun
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
 
-    -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill1)
-
     -- copy window to all workspaces (make always visible)
     , ((modm,               xK_z     ), windows copyToAll)
 
@@ -167,12 +164,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_v     ), sendMessage (IncMasterN 1))
 
+    -- close focused window
+    , ((modm              , xK_q     ), kill1)
+
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
     , ((modm .|. shiftMask, xK_q     ), spawn "gnome-session-quit")
 
     -- Restart xmonad
-    , ((modm              , xK_q     ), spawn myRestartCmd)
+    , ((modm .|. shiftMask, xK_r     ), spawn myRestartCmd)
 
     -- Add workspace with prompt
     , ((modm              , xK_a     ), addWorkspacePrompt myPromptConfig)
