@@ -17,7 +17,7 @@ Config { font = "xft:inconsolata:size=15:antialias=true,lcdfilter=lcddefault,rgb
                          "-l","red","-m","yellow","-h","green"]
                         600
                     , Run StdinReader
-                    , Run Com "~/.xmonad/mic-state.sh"  []  "mic" 10
+                    , Run Com "~/.xmonad/mic-state.sh"  []  "mic" 100
                     , Run Com "yaourt -Qu --aur 2>/dev/null | wc -l"  []  "upd" 18000
                     ]
        , sepChar = "%"
