@@ -171,7 +171,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm .|. shiftMask, xK_q     ), spawn "gnome-session-quit")
+    , ((modm .|. shiftMask, xK_q     ), spawn "mate-session-save --logout-dialog")
 
     -- Restart xmonad
     , ((modm .|. shiftMask, xK_r     ), spawn myRestartCmd)
