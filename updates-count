@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+string = `zypper lu`
+count  = string.lines.grep(/\|/).count
+puts(if count > 0 then count - 1 else count end)

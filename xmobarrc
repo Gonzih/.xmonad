@@ -16,7 +16,7 @@ Config { font = "xft:inconsolata:size=15:antialias=true,lcdfilter=lcddefault,rgb
                          "--",
                          "-l","red","-m","yellow","-h","green"]
                         600
-                    , Run Com "zypper lu 2>/dev/null | tail -n +4 | wc -l"  []  "upd" 18000
+                    , Run Com "~/.xmonad/updates-count"  []  "upd" 18000
                     , Run StdinReader
                     ]
        , sepChar = "%"
