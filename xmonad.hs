@@ -12,6 +12,7 @@ import XMonad.Util.Run
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.SetWMName
 import XMonad.Actions.UpdatePointer
+import XMonad.Hooks.EwmhDesktops
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -21,7 +22,7 @@ import XMonad.Prompt (XPPosition(Top), XPConfig(..), defaultXPConfig)
 
 main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
-  xmonad $ defaultConfig
+  xmonad $ ewmh defaultConfig
     { terminal    = "terminology"
     , borderWidth = 3
     , focusedBorderColor = "#026396"
