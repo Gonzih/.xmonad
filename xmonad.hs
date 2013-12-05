@@ -49,7 +49,7 @@ myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
 
 myManageHook = composeAll
-    [ isFullscreen                    --> (doF W.focusDown <+> doFullFloat)
+    [ isFullscreen                    --> doFullFloat
     , className =? "MPlayer"          --> doFloat
     , className =? "mplayer2"         --> doFloat
     , className =? "Vncviewer"        --> doFloat
