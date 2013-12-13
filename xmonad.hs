@@ -46,7 +46,7 @@ altMask = mod1Mask
 myWorkspaces = ["1-term", "2-music", "3-mail", "4-skype", "5-im", "6-irc", "7-zsh", "8-zsh", "9-zsh", "0-www"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
-myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
+myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart; notify-send 'XMonad' '~/.xmonad/xmonad.hs reloaded'"
 
 myManageHook = composeAll
     [ isFullscreen                    --> doFullFloat
