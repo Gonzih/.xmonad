@@ -52,6 +52,7 @@ myManageHook = composeAll
     [ isFullscreen                    --> doFullFloat
     , className =? "MPlayer"          --> doFloat
     , className =? "mplayer2"         --> doFloat
+    , className =? "Y2base"           --> doFloat
     , className =? "Vncviewer"        --> doFloat
     , className =? "Gnuplot"          --> doFloat
     , className =? "java-lang-Thread" --> doFloat
