@@ -8,3 +8,5 @@
 #xloadimage -onroot -fullscreen ~/Dropbox/Public/pics/wall/quokka-wall.jpg
 numlockx on&
 dbus-send --session --print-reply=literal --dest=org.mate.SessionManager /org/mate/SessionManager org.mate.SessionManager.RegisterClient "string:xmonad" "string:$DESKTOP_AUTOSTART_ID" &
+sleep 10; pkill caja &
+wmname LG3D &
