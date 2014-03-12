@@ -64,6 +64,7 @@ myManageHook = composeAll
     , className =? "Pidgin"           --> viewShift "5-im"
     , className =? "Empathy"          --> viewShift "5-im"
     , className =? "Xchat"            --> viewShift "6-irc"
+    , className =? "HipChat"          --> viewShift "6-irc"
     , className =? "Google-chrome"    --> viewShift "0-www"
     , className =? "Firefox"          --> viewShift "0-www"
     , className =? "Chromium"         --> viewShift "0-www"
