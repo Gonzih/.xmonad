@@ -12,7 +12,6 @@ import XMonad.Util.Run
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.SetWMName
 import XMonad.Actions.UpdatePointer
-import XMonad.Hooks.EwmhDesktops
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -27,7 +26,7 @@ main = do
     , borderWidth = 3
     , focusedBorderColor = "#026396"
     , modMask     = myModMask
-    , startupHook = myStartupHook -- >> setWMName "LG3D"
+    , startupHook = myStartupHook >> setWMName "LG3D"
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
     , layoutHook = smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = fullscreenEventHook
@@ -36,6 +35,7 @@ main = do
                     , ppTitle = xmobarColor "green" "" . shorten 30
                     }
                     >> updatePointer (Relative 0.5 0.5)
+                    >> setWMName "LG3D"
     , workspaces = myWorkspaces
     , focusFollowsMouse = myFocusFollowsMouse
     , keys = myKeys
