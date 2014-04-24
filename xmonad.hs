@@ -214,6 +214,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((0, xK_Print), spawn "~/.xmonad/scripts/area-screenshot.sh")
     , ((modm, xK_Print), spawn "~/.xmonad/scripts/full-screenshot.sh") ]
     ++
+    [ ((0, 0x1008FF2C), spawn "~/.xmonad/scripts/area-screenshot.sh")
+    , ((modm, 0x1008FF2C), spawn "~/.xmonad/scripts/full-screenshot.sh") ]
+    ++
 
     --
     -- mod-{; , .}, Switch to physical/Xinerama screens 1, 2, or 3
