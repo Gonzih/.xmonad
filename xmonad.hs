@@ -227,6 +227,32 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_semicolon, xK_comma, xK_period, xK_p, xK_y] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
+    ++
+    [
+    -- win8 sequences sent by touch device Logitech T650
+    -- one finger swipe from left edge
+      ((mod4Mask .|. controlMask, xK_BackSpace ), nextWS)
+    -- one finger swipe from right edge
+    , ((mod4Mask .|. mod1Mask, 0x1008ffb1), prevWS)
+    -- one finger swipe from top edge
+    --, ((mod4Mask .|. controlMask, 0x1008ffb1), spawn $ XMonad.terminal conf)
+    -- three finger swipe up (sends super_r same as mod4)
+    --, ((0, 0xffeb ), spawn "xmessage '3 up'")
+    -- three finger swipe down
+    , ((mod4Mask, xK_d ),  spawn $ XMonad.terminal conf)
+    ]
+
+button6 :: Button
+button6 = 6
+button7 :: Button
+button7 = 7
+button8 :: Button
+button8 = 8
+button9 :: Button
+button9 = 9
+button10 :: Button
+button10 = 10
+
 myMouseBindings :: XConfig Layout -> M.Map (KeyMask, Button) (Window -> X ())
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList
     -- mod-button1 %! Set the window to floating mode and move by dragging
@@ -237,5 +263,12 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList
     -- mod-button3 %! Set the window to floating mode and resize by dragging
     , ((modm, button3), \w -> focus w >> mouseResizeWindow w
                                          >> windows W.shiftMaster)
+
+    -- T650 sends these for three finger swipes left and right
+    --, ((0, button8), (\w -> focus w >> windows W.swapUp))
+    --, ((0, button9), (\w -> focus w >> windows W.swapDown))
+    , ((0, button8), (\w -> focus w >> windows W.focusDown))
+    , ((0, button9), (\w -> focus w >> windows W.focusDown))
+
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
