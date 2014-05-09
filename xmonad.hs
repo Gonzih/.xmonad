@@ -235,11 +235,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- one finger swipe from right edge
     , ((mod4Mask .|. mod1Mask, 0x1008ffb1), prevWS)
     -- one finger swipe from top edge
-    --, ((mod4Mask .|. controlMask, 0x1008ffb1), spawn $ XMonad.terminal conf)
+    , ((mod4Mask .|. controlMask, 0x1008ffb1), spawn $ XMonad.terminal conf)
     -- three finger swipe up (sends super_r same as mod4)
     --, ((0, 0xffeb ), spawn "xmessage '3 up'")
     -- three finger swipe down
-    , ((mod4Mask, xK_d ),  spawn $ XMonad.terminal conf)
+    --, ((mod4Mask, xK_d ),  spawn $ XMonad.terminal conf)
     ]
 
 button6 :: Button
