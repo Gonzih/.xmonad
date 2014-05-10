@@ -267,8 +267,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList
     -- T650 sends these for three finger swipes left and right
     --, ((0, button8), (\w -> focus w >> windows W.swapUp))
     --, ((0, button9), (\w -> focus w >> windows W.swapDown))
-    , ((0, button8), (\w -> focus w >> windows W.focusDown))
-    , ((0, button9), (\w -> focus w >> windows W.focusDown))
+    , ((0, button8), (\w ->  screenWorkspace 0 >> focus w))
+    , ((0, button9), (\w ->  screenWorkspace 1 >> focus w))
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
