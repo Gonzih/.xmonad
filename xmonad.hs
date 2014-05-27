@@ -59,6 +59,7 @@ myManageHook = composeAll
     , className =? "java-lang-Thread" --> doFloat
     , className =? "Rhythmbox"        --> viewShift "2-music"
     , className =? "banshee"          --> viewShift "2-music"
+    , className =? "Spotify"          --> viewShift "2-music"
     , className =? "Thunderbird"      --> viewShift "3-mail"
     , className =? "Evolution"        --> viewShift "3-mail"
     , className =? "Skype"            --> viewShift "4-skype"
