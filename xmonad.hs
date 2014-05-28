@@ -232,11 +232,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
     -- win8 sequences sent by touch device Logitech T650
     -- one finger swipe from left edge
-      ((mod4Mask .|. controlMask, xK_BackSpace ), nextWS)
+     --((mod4Mask .|. controlMask, xK_BackSpace ), nextWS)
     -- one finger swipe from right edge
-    , ((mod4Mask .|. mod1Mask, 0x1008ffb1), prevWS)
+    --, ((mod4Mask .|. mod1Mask, 0x1008ffb1), prevWS)
     -- one finger swipe from top edge
-    , ((mod4Mask .|. controlMask, 0x1008ffb1), spawn $ XMonad.terminal conf)
+    --, ((mod4Mask .|. controlMask, 0x1008ffb1), spawn $ XMonad.terminal conf)
     -- three finger swipe up (sends super_r same as mod4)
     --, ((0, 0xffeb ), spawn "xmessage '3 up'")
     -- three finger swipe down
