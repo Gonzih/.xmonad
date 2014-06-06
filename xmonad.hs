@@ -87,7 +87,7 @@ myPromptConfig :: XPConfig
 myPromptConfig = defaultXPConfig
     { position          = Top
     , promptBorderWidth = 0
-    , font              = "xft:inconsolata:size=16:antialias=true"
+    , font              = "xft:inconsolata:size=12:antialias=true"
     , height            = 24
     , bgColor           = "black"
     , fgColor           = "grey"
