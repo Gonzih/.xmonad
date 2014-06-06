@@ -1,4 +1,4 @@
-Config { font = "xft:inconsolata:size=12:antialias=true,lcdfilter=lcddefault,rgba=rgb,hinting=true"
+Config { font = "xft:inconsolata:size=10:antialias=true,lcdfilter=lcddefault,rgba=rgb,hinting=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
