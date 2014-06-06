@@ -17,7 +17,7 @@ Config { font = "xft:inconsolata:size=12:antialias=true,lcdfilter=lcddefault,rgb
                          "--",
                          "-l","red","-m","yellow","-h","green"]
                         600
-                    , Run Com "~/.xmonad/scripts/updates-count"  []  "upd" 18000
+                    , Run Com "/home/gnzh/.xmonad/scripts/updates-count"  []  "upd" 18000
                     , Run StdinReader
                     ]
        , sepChar = "%"
