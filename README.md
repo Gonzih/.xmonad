@@ -1,7 +1,6 @@
 Weather stations list http://weather.rap.ucar.edu/surface/stations.txt
 
 Requirements:
-* trayer-srg (optional)
 * xmonad
 * xmobar
 
