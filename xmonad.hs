@@ -2,7 +2,6 @@ import XMonad
 import System.Exit
 import System.IO
 import XMonad.Actions.CycleWS
-import XMonad.Actions.DynamicWorkspaces
 import XMonad.Actions.CopyWindow(copy, kill1, copyToAll, killAllOtherCopies)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -12,6 +11,7 @@ import XMonad.Util.Run
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.SetWMName
 import XMonad.Actions.UpdatePointer
+import XMonad.Layout.IndependentScreens
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -180,37 +180,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm .|. shiftMask, xK_r     ), spawn myRestartCmd)
-
-    -- Add workspace with prompt
-    , ((modm              , xK_a     ), addWorkspacePrompt myPromptConfig)
-
-    -- Rename workspace
-    , ((modm              , xK_o     ), renameWorkspace myPromptConfig)
-
-    -- Remove workspace
-    , ((modm              , xK_e     ), removeEmptyWorkspace)
-
-    ---- For dynamic workspaces
-    -- Select workspace
-    , ((modm              , xK_i     ), selectWorkspace myPromptConfig)
-
-    -- Move client to workspace
-    , ((modm              , xK_u     ), withWorkspace myPromptConfig (windows . W.shift))
-
-    -- Copy client to workspace
-    , ((modm .|. shiftMask, xK_u     ), withWorkspace myPromptConfig (windows . copy))
     ]
 
     -- Programmer Dvorak
     -- mod-[1..9]       %! Switch to workspace N
     -- mod-shift-[1..9] %! Move client to workspace N
     ++
-    zip (zip (repeat (modm)) myNumbersRow) (map (withNthWorkspace W.greedyView) [0..])
+    [((m .|. modm, k), windows $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) myNumbersRow
+        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
-    zip (zip (repeat (modm .|. shiftMask))   myNumbersRow) (map (withNthWorkspace W.shift) [0..])
-    ++
-    zip (zip (repeat (modm .|. altMask)) myNumbersRow) (map (withNthWorkspace copy)  [0..])
-    ++
+
 
     -- Screenshot commands
     [ ((0, xK_Print), spawn "~/.xmonad/scripts/area-screenshot.sh")
