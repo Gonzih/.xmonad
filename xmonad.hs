@@ -191,7 +191,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
-
     -- Screenshot commands
     [ ((0, xK_Print), spawn "~/.xmonad/scripts/area-screenshot.sh")
     , ((modm, xK_Print), spawn "~/.xmonad/scripts/full-screenshot.sh") ]
