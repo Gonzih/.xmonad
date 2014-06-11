@@ -73,7 +73,7 @@ myManageHook = composeAll
     , className =? "peksystray"       --> doIgnore
     , className =? "mate-panel"       --> doIgnore
     ]
-  where viewShift = doF . liftM2 (.) W.greedyView W.shift
+  where viewShift = doF . liftM2 (.) W.view W.shift
 
 myStartupHook = do
   spawn "$HOME/.xmonad/autostart.sh"
