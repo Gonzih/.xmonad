@@ -57,6 +57,8 @@ myManageHook = composeAll
     , className =? "Vncviewer"        --> doFloat
     , className =? "Gnuplot"          --> doFloat
     , className =? "java-lang-Thread" --> doFloat
+    , className =? "Plasma-desktop"   --> doFloat
+    , className =? "Plasma"           --> doFloat
     , className =? "Rhythmbox"        --> viewShift "2-music"
     , className =? "banshee"          --> viewShift "2-music"
     , className =? "Spotify"          --> viewShift "2-music"
@@ -72,8 +74,12 @@ myManageHook = composeAll
     , className =? "Chromium"         --> viewShift "0-www"
     , className =? "peksystray"       --> doIgnore
     , className =? "mate-panel"       --> doIgnore
+    , className =? "kdesktop"         --> doIgnore
+    , className =? "desktop_window"   --> doIgnore
+    , className =? "Kpackagekit"      --> unFloat
     ]
   where viewShift = doF . liftM2 (.) W.view W.shift
+        unFloat = ask >>= doF . W.sink
 
 myStartupHook = do
   spawn "$HOME/.xmonad/autostart.sh"
