@@ -49,16 +49,8 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart; notify-send 'XMonad' '~/.xmonad/xmonad.hs reloaded'"
 
-myManageHook = composeAll
+myManageHook = composeAll $
     [ isFullscreen                    --> doFullFloat
-    , className =? "MPlayer"          --> doFloat
-    , className =? "mplayer2"         --> doFloat
-    , className =? "Y2base"           --> doFloat
-    , className =? "Vncviewer"        --> doFloat
-    , className =? "Gnuplot"          --> doFloat
-    , className =? "java-lang-Thread" --> doFloat
-    , className =? "Plasma-desktop"   --> doFloat
-    , className =? "Plasma"           --> doFloat
     , className =? "Rhythmbox"        --> viewShift "2-music"
     , className =? "banshee"          --> viewShift "2-music"
     , className =? "Spotify"          --> viewShift "2-music"
@@ -72,13 +64,24 @@ myManageHook = composeAll
     , className =? "Google-chrome"    --> viewShift "0-www"
     , className =? "Firefox"          --> viewShift "0-www"
     , className =? "Chromium"         --> viewShift "0-www"
-    , className =? "peksystray"       --> doIgnore
-    , className =? "mate-panel"       --> doIgnore
-    , className =? "kdesktop"         --> doIgnore
-    , className =? "desktop_window"   --> doIgnore
     , className =? "Kpackagekit"      --> unFloat
     ]
-  where viewShift = doF . liftM2 (.) W.view W.shift
+    ++ [className =? name --> doFloat  | name <- myFloaters]
+    ++ [className =? name --> doIgnore | name <- myIgnores]
+  where myFloaters = [ "MPlayer"
+                     , "mplayer2"
+                     , "Y2base"
+                     , "Vncviewer"
+                     , "Gnuplot"
+                     , "java-lang-Thread"
+                     ]
+        myIgnores  = [ "peksystray"
+                     , "mate-panel"
+                     , "kdesktop"
+                     , "desktop_window"
+                     , "Plasma-desktop"
+                     ]
+        viewShift = doF . liftM2 (.) W.view W.shift
         unFloat = ask >>= doF . W.sink
 
 myStartupHook = do
