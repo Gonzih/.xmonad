@@ -10,3 +10,4 @@ numlockx on&
 dbus-send --session --print-reply=literal --dest=org.mate.SessionManager /org/mate/SessionManager org.mate.SessionManager.RegisterClient "string:xmonad" "string:$DESKTOP_AUTOSTART_ID" &
 sleep 10; pkill caja &
 wmname LG3D &
+setxkbmap -option grp:caps_toggle 'us(dvp),ru'
