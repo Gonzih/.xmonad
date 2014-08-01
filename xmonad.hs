@@ -74,12 +74,13 @@ myManageHook = composeAll $
                      , "Vncviewer"
                      , "Gnuplot"
                      , "java-lang-Thread"
+                     , "Plasma-desktop"
+                     , "krunner"
                      ]
         myIgnores  = [ "peksystray"
                      , "mate-panel"
                      , "kdesktop"
                      , "desktop_window"
-                     , "Plasma-desktop"
                      ]
         viewShift = doF . liftM2 (.) W.view W.shift
         unFloat = ask >>= doF . W.sink
