@@ -66,17 +66,18 @@ myManageHook = composeAll $
     , className =? "Chromium"         --> viewShift "0-www"
     , className =? "Kpackagekit"      --> unFloat
     ]
-    ++ [className =? name --> doFloat  | name <- myFloaters]
+
+    ++ [className =? name --> doFloat  | name <- myFloats]
     ++ [className =? name --> doIgnore | name <- myIgnores]
-  where myFloaters = [ "MPlayer"
-                     , "mplayer2"
-                     , "Y2base"
-                     , "Vncviewer"
-                     , "Gnuplot"
-                     , "java-lang-Thread"
-                     , "Plasma-desktop"
-                     , "krunner"
-                     ]
+  where myFloats = [ "MPlayer"
+                   , "mplayer2"
+                   , "Y2base"
+                   , "Vncviewer"
+                   , "Gnuplot"
+                   , "java-lang-Thread"
+                   , "Plasma-desktop"
+                   , "krunner"
+                   ]
         myIgnores  = [ "peksystray"
                      , "mate-panel"
                      , "kdesktop"
