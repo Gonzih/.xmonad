@@ -200,7 +200,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q     ), spawn "mate-session-save --logout-dialog")
 
     -- Restart xmonad
-    , ((modm .|. shiftMask, xK_r     ), spawn myRestartCmd)
+    , ((modm              , xK_p     ), spawn myRestartCmd)
     ]
 
     -- Programmer Dvorak
