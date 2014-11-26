@@ -22,7 +22,7 @@ import XMonad.Prompt (XPPosition(Top), XPConfig(..), defaultXPConfig)
 main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ ewmh defaultConfig
-    { terminal    = "gnome-terminal"
+    { terminal    = "st -f 'Inconsolata for Powerline:size=16'"
     , borderWidth = 3
     , focusedBorderColor = "#026396"
     , modMask     = altMask
