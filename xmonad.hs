@@ -44,7 +44,7 @@ main = do
 
 myModMask = mod4Mask
 altMask = mod1Mask
-myWorkspaces = ["1-term", "2-music", "3-mail", "4-skype", "5-im", "6-irc", "7-fish", "8-fish", "9-fish", "0-www"]
+myWorkspaces = ["1-term", "2-music", "3-mail", "4-im", "5-n", "6-irc", "7-fish", "8-fish", "9-fish", "0-www"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart; notify-send 'XMonad' '~/.xmonad/xmonad.hs reloaded'"
@@ -56,9 +56,10 @@ myManageHook = composeAll $
     , className =? "Spotify"          --> viewShift "2-music"
     , className =? "Thunderbird"      --> viewShift "3-mail"
     , className =? "Evolution"        --> viewShift "3-mail"
-    , className =? "Skype"            --> viewShift "4-skype"
-    , className =? "Pidgin"           --> viewShift "5-im"
-    , className =? "Empathy"          --> viewShift "5-im"
+    , className =? "Skype"            --> viewShift "4-im"
+    , className =? "Telegram"         --> viewShift "4-im"
+    , className =? "Pidgin"           --> viewShift "5-n"
+    , className =? "Empathy"          --> viewShift "5-n"
     , className =? "Xchat"            --> viewShift "6-irc"
     , className =? "HipChat"          --> viewShift "6-irc"
     , className =? "Google-chrome"    --> viewShift "0-www"
