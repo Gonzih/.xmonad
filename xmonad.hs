@@ -88,6 +88,7 @@ myManageHook = composeAll $
                    , "ksplashshx"
                    , "yakuake"
                    , "Yakuake"
+                   , "wrapper"
                    ]
         myIgnores  = [ "peksystray"
                      , "mate-panel"
@@ -125,7 +126,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_r     ), spawn "exe=`dmenu_run` && eval \"exec $exe\"")
+    , ((modm,               xK_r     ), spawn "xfce4-popup-whiskermenu")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
