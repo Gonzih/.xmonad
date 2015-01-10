@@ -17,7 +17,7 @@ import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
 import Control.Monad (liftM2)
-import XMonad.Prompt (XPPosition(Top), XPConfig(..), defaultXPConfig)
+-- import XMonad.Prompt (XPPosition(Top), XPConfig(..), defaultXPConfig)
 
 main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
@@ -106,17 +106,17 @@ myNumbersRow = [xK_ampersand, xK_bracketleft, xK_braceleft, xK_braceright, xK_pa
 ------------------------------------------------------------------------
 -- Prompt Config
 --
-myPromptConfig :: XPConfig
-myPromptConfig = defaultXPConfig
-    { position          = Top
-    , promptBorderWidth = 0
-    , font              = "xft:inconsolata:size=12:antialias=true"
-    , height            = 24
-    , bgColor           = "black"
-    , fgColor           = "grey"
-    , bgHLight          = "#6B6382"
-    , fgHLight          = "#4A4459"
-    }
+-- myPromptConfig :: XPConfig
+-- myPromptConfig = defaultXPConfig
+--     { position          = Top
+--     , promptBorderWidth = 0
+--     , font              = "xft:inconsolata:size=12:antialias=true"
+--     , height            = 24
+--     , bgColor           = "black"
+--     , fgColor           = "grey"
+--     , bgHLight          = "#6B6382"
+--     , fgHLight          = "#4A4459"
+--     }
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
