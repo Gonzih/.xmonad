@@ -94,6 +94,7 @@ myManageHook = composeAll $
                      , "mate-panel"
                      , "kdesktop"
                      , "desktop_window"
+                     , "Xfce4-notifyd"
                      ]
         viewShift = doF . liftM2 (.) W.view W.shift
         unFloat = ask >>= doF . W.sink
