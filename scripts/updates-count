@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bash
 
-string = `zypper lu`
-count  = string.lines.grep(/\|/).count
-puts(if count > 0 then count - 1 else count end)
+yum list updates | tail -n+3 | wc -l
