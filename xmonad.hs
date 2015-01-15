@@ -38,7 +38,7 @@ main = do
                     }
                     >> updatePointer (Relative 0.5 0.5)
                     >> setWMName "LG3D"
-                    >> fadeInactiveLogHook 0.4
+                    >> fadeInactiveLogHook 0.6
     , workspaces = myWorkspaces
     , focusFollowsMouse = myFocusFollowsMouse
     , mouseBindings = myMouseBindings
