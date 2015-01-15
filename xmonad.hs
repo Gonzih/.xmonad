@@ -7,6 +7,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.FadeInactive
 import XMonad.Util.Run
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.SetWMName
@@ -36,6 +37,7 @@ main = do
                     }
                     >> updatePointer (Relative 0.5 0.5)
                     >> setWMName "LG3D"
+                    >> fadeInactiveLogHook 0.4
     , workspaces = myWorkspaces
     , focusFollowsMouse = myFocusFollowsMouse
     , mouseBindings = myMouseBindings
