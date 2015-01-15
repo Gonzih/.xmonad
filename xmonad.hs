@@ -13,6 +13,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Hooks.SetWMName
 import XMonad.Actions.UpdatePointer
 import XMonad.Layout.IndependentScreens
+import XMonad.Layout.Spacing
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -24,12 +25,12 @@ main = do
   xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ ewmh defaultConfig
     { terminal    = "st -f 'Inconsolata for Powerline:size=16'"
-    , borderWidth = 3
+    , borderWidth = 0
     , focusedBorderColor = "#026396"
     , modMask     = altMask
     , startupHook = myStartupHook >> setWMName "LG3D"
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
-    , layoutHook = smartBorders (avoidStruts $ layoutHook defaultConfig)
+    , layoutHook = smartSpacing 3 (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = fullscreenEventHook
     , logHook = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmproc
