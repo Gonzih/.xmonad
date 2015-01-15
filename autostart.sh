@@ -7,7 +7,6 @@
 #            --background black --max-geometry 13x1  --icon-size 25 &
 #xloadimage -onroot -fullscreen ~/Dropbox/Public/pics/wall/quokka-wall.jpg
 numlockx on&
-dbus-send --session --print-reply=literal --dest=org.mate.SessionManager /org/mate/SessionManager org.mate.SessionManager.RegisterClient "string:xmonad" "string:$DESKTOP_AUTOSTART_ID" &
-sleep 10; pkill caja &
 wmname LG3D &
+xfce4-session &
 setxkbmap -option grp:caps_toggle 'us(dvp),ru'
