@@ -6,6 +6,8 @@ Requirements:
 * xcompmgr
 * xfce4
 * xfce4-popup-whiskermenu
+* scrot
+* xclip
 
 Installation:
 * Install haskell with cabal
