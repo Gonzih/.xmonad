@@ -203,7 +203,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm .|. shiftMask, xK_q     ), spawn "mate-session-save --logout-dialog")
+    , ((modm .|. shiftMask, xK_q     ), spawn "xfce4-session-lougout")
 
     -- Restart xmonad
     , ((modm              , xK_p     ), spawn myRestartCmd)
@@ -231,7 +231,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-{; , .}, Move client to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_comma, xK_semicolon, xK_period, xK_p, xK_y] [0..]
+        | (key, sc) <- zip [xK_semicolon, xK_comma, xK_period, xK_p, xK_y] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
     ++
