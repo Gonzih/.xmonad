@@ -30,7 +30,7 @@ main = do
     , modMask     = altMask
     , startupHook = myStartupHook >> setWMName "LG3D"
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
-    , layoutHook = smartSpacing 3 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
+    , layoutHook = smartSpacing 8 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = fullscreenEventHook
     , logHook = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmproc
@@ -47,7 +47,7 @@ main = do
 
 myModMask = mod4Mask
 altMask = mod1Mask
-myWorkspaces = ["1-term", "2-music", "3-mail", "4-im", "5-n", "6-irc", "7-fish", "8-fish", "9-fish", "0-www"]
+myWorkspaces = ["1-misc", "2-music", "3-mail", "4-im", "5-n", "6-irc", "7-fish", "8-fish", "9-fish", "0-www"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart; notify-send 'XMonad' '~/.xmonad/xmonad.hs reloaded'"
