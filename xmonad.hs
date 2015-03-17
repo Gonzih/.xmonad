@@ -22,9 +22,9 @@ import Control.Monad (liftM2)
 -- import XMonad.Prompt (XPPosition(Top), XPConfig(..), defaultXPConfig)
 
 main = do
-  xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
+  -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ ewmh defaultConfig
-    { terminal    = "st -f 'Inconsolata for Powerline:size=16'"
+    { terminal    = "st -f 'Inconsolata-g for Powerline:size=16'"
     , borderWidth = 0
     , focusedBorderColor = "#026396"
     , modMask     = altMask
@@ -32,13 +32,9 @@ main = do
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
     , layoutHook = smartSpacing 8 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = fullscreenEventHook
-    , logHook = dynamicLogWithPP xmobarPP
-                    { ppOutput = hPutStrLn xmproc
-                    , ppTitle = xmobarColor "green" "" . shorten 30
-                    }
-                    >> updatePointer (Relative 0.5 0.5)
-                    >> setWMName "LG3D"
-                    >> fadeInactiveLogHook 0.6
+    , logHook = updatePointer (Relative 0.5 0.5)
+                >> setWMName "LG3D"
+                >> fadeInactiveLogHook 0.6
     , workspaces = myWorkspaces
     , focusFollowsMouse = myFocusFollowsMouse
     , mouseBindings = myMouseBindings
