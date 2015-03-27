@@ -8,7 +8,7 @@
 #xloadimage -onroot -fullscreen ~/Dropbox/Public/pics/wall/quokka-wall.jpg
 numlockx on&
 wmname LG3D &
-xfce4-session &
+# xfce4-session &
 setxkbmap -option -option ctrl:nocaps -option grp:lctrl_toggle 'us(dvp),ru' &
 xcompmgr -c &
 (sleep 10 && xfce4-panel --restart) &
