@@ -24,7 +24,7 @@ import Control.Monad (liftM2)
 main = do
   -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ ewmh defaultConfig
-    { terminal    = "st -f 'Inconsolata-g for Powerline:size=16'"
+    { terminal    = "gnome-terminal"
     , borderWidth = 0
     , focusedBorderColor = "#026396"
     , modMask     = altMask
