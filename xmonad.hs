@@ -25,12 +25,12 @@ main = do
   -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ ewmh defaultConfig
     { terminal    = "xfce4-terminal"
-    , borderWidth = 0
-    , focusedBorderColor = "#026396"
+    , borderWidth = 3
+    , focusedBorderColor = "#d4440b"
     , modMask     = altMask
     , startupHook = myStartupHook >> setWMName "LG3D"
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
-    , layoutHook = smartSpacing 8 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
+    , layoutHook = smartSpacing 3 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = fullscreenEventHook
     , logHook = updatePointer (Relative 0.5 0.5)
                 >> setWMName "LG3D"
