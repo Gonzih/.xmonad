@@ -30,7 +30,7 @@ main = do
     , modMask     = altMask
     , startupHook = myStartupHook >> setWMName "LG3D"
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
-    , layoutHook = smartSpacing 3 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
+    , layoutHook = smartSpacing 5 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = fullscreenEventHook
     , logHook = updatePointer (Relative 0.5 0.5)
                 >> setWMName "LG3D"
