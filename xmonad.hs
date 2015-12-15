@@ -26,7 +26,7 @@ main = do
   xmonad $ ewmh defaultConfig
     { terminal    = "xfce4-terminal"
     , borderWidth = 3
-    , focusedBorderColor = "#d4440b"
+    , focusedBorderColor = "#137CBD"
     , modMask     = altMask
     , startupHook = myStartupHook >> setWMName "LG3D"
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
