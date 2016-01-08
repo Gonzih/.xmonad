@@ -72,6 +72,9 @@ myManageHook = composeAll $
     ++ [className =? name --> doIgnore | name <- myIgnores]
   where myFloats = [ "MPlayer"
                    , "mplayer2"
+                   , "mplayer"
+                   , "vlc"
+                   , "Vlc"
                    , "Y2base"
                    , "Vncviewer"
                    , "Gnuplot"
