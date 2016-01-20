@@ -9,6 +9,6 @@
 numlockx on&
 wmname LG3D &
 # xfce4-session &
-# setxkbmap -option -option ctrl:nocaps -option grp:lctrl_toggle 'us(dvp),ru' &
+setxkbmap -option -option ctrl:nocaps -option grp:lctrl_toggle 'us(dvp),ru' &
 # xcompmgr -c &
 (sleep 1 && xfce4-panel --restart) &
