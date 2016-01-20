@@ -32,7 +32,7 @@ main = do
     , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
     , layoutHook = smartSpacing 5 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
-    , logHook = updatePointer (0.5, 0.5) (1, 1)
+    , logHook = updatePointer (0.5, 0.5) (0, 0)
                 >> setWMName "LG3D"
                 >> fadeInactiveLogHook 0.6
     , workspaces = myWorkspaces
