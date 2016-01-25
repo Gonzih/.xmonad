@@ -25,7 +25,7 @@ main = do
   -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ ewmh defaultConfig
     { terminal    = "xfce4-terminal"
-    , borderWidth = 3
+    , borderWidth = 2
     , focusedBorderColor = "#D60000"
     , modMask     = altMask
     , startupHook = myStartupHook >> setWMName "LG3D"
