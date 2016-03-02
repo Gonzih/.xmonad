@@ -41,7 +41,7 @@ main = do
     , keys = myKeys
     }
 
-myModMask = mod4Mask
+superMask = mod4Mask
 altMask = mod1Mask
 myWorkspaces = ["1-misc", "2-music", "3-mail", "4-im", "5-n", "6-irc", "7-fish", "8-fish", "9-fish", "0-www"]
 myFocusFollowsMouse :: Bool
