@@ -1,5 +1,5 @@
-#!/usr/bin/sh
+#!/usr/bin/env fish
 
 scrot /tmp/full-screenshot.png
-geturl /tmp/full-screenshot.png
-notify-send -i ~/.xmonad/scripts/screenshot.png 'Uploaded screenshot' 'of desktop to filepicker.io'
+dropbox-upload /tmp/full-screenshot.png
+notify-send -i ~/.xmonad/scripts/screenshot.png 'Uploaded screenshot' 'of desktop to dropbox'
