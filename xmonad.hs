@@ -210,7 +210,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_l     ), spawn "xflock4")
 
     -- Restart xmonad
-    , ((modm              , xK_p     ), spawn myRestartCmd)
+    , ((modm  .|. shiftMask, xK_p     ), spawn myRestartCmd)
     ]
 
     -- Programmer Dvorak
