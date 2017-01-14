@@ -24,7 +24,8 @@ import Control.Monad (liftM2)
 main = do
   -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ ewmh defaultConfig
-    { terminal    = "xfce4-terminal"
+    -- { terminal    = "xfce4-terminal"
+    { terminal    = "terminology"
     , borderWidth = 2
     , focusedBorderColor = "#D60000"
     , modMask     = altMask
