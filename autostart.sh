@@ -6,6 +6,7 @@
 #stalonetray --no-shrink --geometry 12x1+1630+0 --transparent false \
 #            --background black --max-geometry 13x1  --icon-size 25 &
 #xloadimage -onroot -fullscreen ~/Dropbox/Public/pics/wall/quokka-wall.jpg
+xrdb ~/.Xresources
 numlockx on&
 wmname LG3D &
 # xfce4-session &
