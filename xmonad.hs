@@ -23,7 +23,7 @@ import Control.Monad (liftM2)
 
 main = do
   -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
-  xmonad $ ewmh defaultConfig
+  xmonad $ ewmh def
     -- { terminal    = "xfce4-terminal"
     { terminal    = "urxvt"
     , borderWidth = 2
