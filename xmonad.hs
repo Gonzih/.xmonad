@@ -58,9 +58,9 @@ myManageHook = composeAll $
     , className =? "Skype"            --> viewShift "4-im"
     , className =? "TelegramDesktop"  --> viewShift "4-im"
     , className =? "Xchat"            --> viewShift "6-irc"
-    , className =? "Google-chrome"    --> viewShift "0-www"
     , className =? "Firefox"          --> viewShift "0-www"
-    , className =? "Chromium"         --> viewShift "0-www"
+    , className =? "Google-chrome"    --> viewShift "1-misc"
+    , className =? "Chromium"         --> viewShift "1-misc"
     , className =? "Kpackagekit"      --> unFloat
     ]
 
