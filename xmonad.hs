@@ -133,11 +133,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch gmrun
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
 
-    -- copy window to all workspaces (make always visible)
-    , ((modm,               xK_j     ), windows copyToAll)
+--     -- copy window to all workspaces (make always visible)
+--     , ((modm,               xK_j     ), windows copyToAll)
 
-    -- kill all other window copies (disable always visible)
-    , ((modm .|. shiftMask, xK_j     ),  killAllOtherCopies)
+--     -- kill all other window copies (disable always visible)
+--     , ((modm .|. shiftMask, xK_j     ),  killAllOtherCopies)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
