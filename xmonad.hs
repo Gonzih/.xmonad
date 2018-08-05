@@ -57,6 +57,7 @@ myManageHook = composeAll $
     , className =? "Thunderbird"      --> viewShift "3-mail"
     , className =? "Skype"            --> viewShift "4-im"
     , className =? "TelegramDesktop"  --> viewShift "4-im"
+    , className =? "Keybase"          --> viewShift "4-im"
     , className =? "keepassxc"        --> viewShift "5-kp"
     , className =? "Xchat"            --> viewShift "6-irc"
     , className =? "Slack"            --> viewShift "6-irc"
