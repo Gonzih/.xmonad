@@ -207,7 +207,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm .|. shiftMask, xK_l     ), spawn "xfce4-session-logout")
+    -- , ((modm .|. shiftMask, xK_l     ), spawn "xfce4-session-logout")
 
     -- Restart xmonad
     , ((modm  .|. shiftMask, xK_p     ), spawn myRestartCmd)
