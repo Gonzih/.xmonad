@@ -3,6 +3,7 @@ import System.Exit
 import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Actions.CopyWindow(copy, kill1, copyToAll, killAllOtherCopies)
+import XMonad.Config.Kde
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -30,7 +31,7 @@ main = do
     , focusedBorderColor = "#D60000"
     , modMask     = altMask
     , startupHook = myStartupHook >> setWMName "LG3D"
-    , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
+    , manageHook = manageHook kdeConfig <+> manageDocks <+> myManageHook <+> manageHook defaultConfig
     , layoutHook = smartSpacing 5 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
     , logHook = updatePointer (0.5, 0.5) (0, 0)
@@ -83,6 +84,8 @@ myManageHook = composeAll $
                    , "Plasma"
                    , "plasma-desktop"
                    , "Plasma-desktop"
+                   , "plasmashell"
+                   , "Klipper"
                    , "kmix"
                    , "Kmix"
                    , "krunner"
