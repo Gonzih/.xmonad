@@ -84,7 +84,6 @@ myManageHook = composeAll $
                    , "Plasma"
                    , "plasma-desktop"
                    , "Plasma-desktop"
-                   , "plasmashell"
                    , "Klipper"
                    , "kmix"
                    , "Kmix"
@@ -95,12 +94,14 @@ myManageHook = composeAll $
                    , "yakuake"
                    , "Yakuake"
                    , "wrapper"
+                   , "rofi"
                    ]
         myIgnores  = [ "peksystray"
                      , "mate-panel"
                      , "kdesktop"
                      , "desktop_window"
                      , "Xfce4-notifyd"
+                     , "plasmashell"
                      ]
         viewShift = doF . liftM2 (.) W.view W.shift
         unFloat = ask >>= doF . W.sink
@@ -133,7 +134,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_r     ), spawn "xfce4-popup-whiskermenu")
+    , ((modm,               xK_r     ), spawn "rofi -show combi")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
