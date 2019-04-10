@@ -48,7 +48,7 @@ altMask = mod1Mask
 myWorkspaces = ["1-misc", "2-music", "3-mail", "4-im", "5-kp", "6-irc", "7-fish", "8-fish", "9-fish", "0-www"]
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
-myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart; notify-send 'XMonad' '~/.xmonad/xmonad.hs reloaded'"
+myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
 
 myManageHook = composeAll $
     [ isFullscreen                    --> doFullFloat
@@ -207,7 +207,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm .|. shiftMask, xK_q     ), spawn "xflock4")
+    , ((modm .|. shiftMask, xK_q     ), spawn "qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock")
 
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
