@@ -13,3 +13,4 @@ wmname LG3D &
 setxkbmap -option -option ctrl:nocaps -option grp:lctrl_toggle 'us(dvp),ru' &
 # xcompmgr -c &
 # (sleep 1 && xfce4-panel --restart) &
+balooctl disable &
