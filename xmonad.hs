@@ -207,7 +207,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm .|. shiftMask, xK_q     ), spawn "qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock")
+    -- , ((modm .|. shiftMask, xK_q     ), spawn "qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock")
 
     -- Quit xmonad
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
