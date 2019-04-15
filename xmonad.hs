@@ -56,6 +56,7 @@ myManageHook = composeAll $
     , className =? "banshee"          --> viewShift "2-music"
     , className =? "Spotify"          --> viewShift "2-music"
     , className =? "Thunderbird"      --> viewShift "3-mail"
+    , className =? "Mail"             --> viewShift "3-mail"
     , className =? "Skype"            --> viewShift "4-im"
     , className =? "TelegramDesktop"  --> viewShift "4-im"
     , className =? "Keybase"          --> viewShift "4-im"
