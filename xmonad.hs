@@ -65,6 +65,7 @@ myManageHook = composeAll $
     , className =? "keepassxc"        --> viewShift "5-kp"
     , className =? "yubioath-desktop" --> viewShift "5-kp"
     , className =? "Xchat"            --> viewShift "6-irc"
+    , className =? "Hexchat"          --> viewShift "6-irc"
     , className =? "Slack"            --> viewShift "6-irc"
     , className =? "Firefox"          --> viewShift "0-www"
     , className =? "Google-chrome"    --> viewShift "1-misc"
