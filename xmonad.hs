@@ -52,6 +52,8 @@ myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
 
 myManageHook = composeAll $
     [ isFullscreen                    --> doFullFloat
+    -- className returns last string from WM_CLASS array that xprop returns
+    -- =? is a strict comparison, not substr based one
     , className =? "Rhythmbox"        --> viewShift "2-music"
     , className =? "banshee"          --> viewShift "2-music"
     , className =? "Spotify"          --> viewShift "2-music"
