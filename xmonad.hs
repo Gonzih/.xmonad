@@ -26,7 +26,8 @@ main = do
   -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
   xmonad $ docks $ ewmh def
     -- { terminal    = "xfce4-terminal"
-    { terminal    = "urxvt"
+    -- { terminal    = "urxvt"
+    { terminal    = "alacritty"
     , borderWidth = 2
     , focusedBorderColor = "#D60000"
     , modMask     = altMask
