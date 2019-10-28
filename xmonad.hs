@@ -52,26 +52,28 @@ myFocusFollowsMouse = True
 myRestartCmd = "xmonad --recompile; killall trayer; xmonad --restart"
 
 myManageHook = composeAll $
-    [ isFullscreen                    --> doFullFloat
     -- className returns last string from WM_CLASS array that xprop returns
     -- =? is a strict comparison, not substr based one
-    , className =? "Rhythmbox"        --> viewShift "2-music"
-    , className =? "banshee"          --> viewShift "2-music"
-    , className =? "Spotify"          --> viewShift "2-music"
-    , className =? "Thunderbird"      --> viewShift "3-mail"
-    , className =? "Daily"            --> viewShift "3-mail"
-    , className =? "Skype"            --> viewShift "4-im"
-    , className =? "TelegramDesktop"  --> viewShift "4-im"
-    , className =? "Keybase"          --> viewShift "4-im"
-    , className =? "keepassxc"        --> viewShift "5-kp"
-    , className =? "yubioath-desktop" --> viewShift "5-kp"
-    , className =? "Xchat"            --> viewShift "6-irc"
-    , className =? "Hexchat"          --> viewShift "6-irc"
-    , className =? "Slack"            --> viewShift "6-irc"
-    , className =? "Firefox"          --> viewShift "0-www"
-    , className =? "Google-chrome"    --> viewShift "1-misc"
-    , className =? "Chromium"         --> viewShift "1-misc"
-    , className =? "Kpackagekit"      --> unFloat
+    [ isFullscreen                             --> doFullFloat
+    , className =? "Rhythmbox"                 --> viewShift "2-music"
+    , className =? "banshee"                   --> viewShift "2-music"
+    , className =? "Spotify"                   --> viewShift "2-music"
+    , className =? "spotify"                   --> viewShift "2-music"
+    , className =? "Thunderbird"               --> viewShift "3-mail"
+    , className =? "Daily"                     --> viewShift "3-mail"
+    , className =? "Skype"                     --> viewShift "4-im"
+    , className =? "TelegramDesktop"           --> viewShift "4-im"
+    , className =? "Keybase"                   --> viewShift "4-im"
+    , className =? "keepassxc"                 --> viewShift "5-kp"
+    , className =? "yubioath-desktop"          --> viewShift "5-kp"
+    , className =? "Xchat"                     --> viewShift "6-irc"
+    , className =? "Hexchat"                   --> viewShift "6-irc"
+    , className =? "Slack"                     --> viewShift "6-irc"
+    , className =? "Firefox"                   --> viewShift "0-www"
+    , className =? "Firefox Developer Edition" --> viewShift "0-www"
+    , className =? "Google-chrome"             --> viewShift "1-misc"
+    , className =? "Chromium"                  --> viewShift "1-misc"
+    , className =? "Kpackagekit"               --> unFloat
     ]
 
     ++ [className =? name --> doFloat  | name <- myFloats]
