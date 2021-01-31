@@ -77,7 +77,8 @@ myManageHook = composeAll $
     , className =? "Chromium"                  --> viewShift "1-misc"
     , className =? "Kpackagekit"               --> unFloat
     ]
-
+    ++ [ stringProperty "_NET_WM_NAME" =? "Emulator" --> doFloat
+       ]
     ++ [className =? name --> doFloat  | name <- myFloats]
     ++ [className =? name --> doIgnore | name <- myIgnores]
   where myFloats = [ "MPlayer"
