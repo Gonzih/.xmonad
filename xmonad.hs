@@ -146,10 +146,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_r     ), spawn "rofi -show combi")
-
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
+    , ((modm,               xK_r     ), spawn "env PATH=$PATH:/home/gnzh/bin rofi -show combi")
 
 --     -- copy window to all workspaces (make always visible)
 --     , ((modm,               xK_j     ), windows copyToAll)
