@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sleep 3 && xmonad --replace
+sleep 10 && xmonad --replace
