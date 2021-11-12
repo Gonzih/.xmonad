@@ -73,6 +73,7 @@ myManageHook = composeAll $
     , className =? "Slack"                     --> viewShift "6-irc"
     , className =? "Firefox"                   --> viewShift "0-www"
     , className =? "Firefox Developer Edition" --> viewShift "0-www"
+    , className =? "Brave-browser"             --> viewShift "0-www"
     , className =? "Google-chrome"             --> viewShift "1-misc"
     , className =? "Chromium"                  --> viewShift "1-misc"
     , className =? "Kpackagekit"               --> unFloat
