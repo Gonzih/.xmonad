@@ -24,7 +24,7 @@ import Control.Monad (liftM2)
 
 main = do
   -- xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
-  xmonad $ docks $ ewmh def
+  xmonad $ docks $ ewmhFullscreen . ewmh $ def
     -- { terminal    = "xfce4-terminal"
     -- { terminal    = "urxvt"
     { terminal    = "alacritty"
@@ -33,9 +33,9 @@ main = do
     -- , modMask     = altMask
     , modMask     = superMask
     , startupHook = myStartupHook >> setWMName "LG3D"
-    , manageHook = manageHook kdeConfig <+> manageDocks <+> myManageHook <+> manageHook defaultConfig
-    , layoutHook = smartSpacing 5 $ smartBorders (avoidStruts $ layoutHook defaultConfig)
-    , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
+    , manageHook = manageHook kdeConfig <+> manageDocks <+> myManageHook <+> manageHook def
+    , layoutHook = smartSpacing 5 $ smartBorders (avoidStruts $ layoutHook def)
+    , handleEventHook = handleEventHook def
     , logHook = updatePointer (0.5, 0.5) (0, 0)
                 >> setWMName "LG3D"
                 >> fadeInactiveLogHook 0.6
